@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "libgo/";
+
+
+message DataRequest {
+    string value = 1;
+}
+
+message DataResponse {
+    string value = 1;
+    string func_apply = 2;
+}
+
+service StringFormatService {
+    rpc Reverse(DataRequest) returns(DataResponse);
+    rpc Upper(DataRequest) returns(DataResponse);
+    rpc Lower(DataRequest) returns(DataResponse);
+}

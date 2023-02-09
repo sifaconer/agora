@@ -1,0 +1,21 @@
+version: '3'
+
+tasks:
+  run:
+    cmds:
+      - go run main.go
+
+  test-html:
+    cmds:
+      - go test -covermode=count -coverpkg=./... -coverprofile coverage.out -v ./...
+      - go tool cover -html=coverage.out
+      
+  test:
+    cmds:
+      - go test -covermode=count -coverpkg=./... -coverprofile coverage.out -v ./...
+      - go tool cover -html coverage.out -o coverage.html
+
+  buf:
+    dir: './api/proto'
+    cmds:
+      - buf generate

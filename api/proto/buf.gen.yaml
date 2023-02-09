@@ -1,0 +1,15 @@
+version: v1
+managed:
+  enabled: true
+plugins:
+  # Go
+  - plugin: buf.build/grpc/go
+    # out: ./
+    out: libgo
+    opt:
+    - paths=source_relative
+  - plugin: buf.build/protocolbuffers/go
+    # out: ./
+    out: libgo
+    opt:
+    - paths=source_relative
